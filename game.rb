@@ -21,7 +21,7 @@ class Game
     puts "#{self.current_player}: #{math.question}"
   end
   
-  # Retrieve player input and store as response
+  # Retrieve player input and store as a response
   def player_input
     print "> "
     self.response = $stdin.gets.chomp
