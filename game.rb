@@ -16,17 +16,19 @@ class Game
   end
 
   # Ask player the question
-  # Set the correct answer to compare eventually
   def ask_math math
     puts "----- NEW TURN -----"
     puts "#{self.current_player}: #{math.question}"
   end
   
+  # Retrieve player input and store as response
   def player_input
     print "> "
     self.response = $stdin.gets.chomp
   end
   
+  # Check if player res matches answer
+  # Decrement life if answer is incorrect
   def check_answer math, player1, player2
     if (self.response.to_i == math.correct_answer)
       puts "#{current_player}: YES! You are correct."
@@ -48,6 +50,8 @@ class Game
     check_game_over player1, player2
   end
 
+  # After decrementing life, check if player still has lives
+  # End game if out of lives
   def check_game_over player1, player2
     if player1.player_lives == 0
       puts "----- GAME OVER -----"
